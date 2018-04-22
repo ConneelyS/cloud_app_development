@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CloudApp Patient System</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<!--Nav bar at the top of all web pages for easy navigation-->
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Home", 'https://a4e9c518e81c4bc1848d670fb747f644.vfs.cloud9.eu-west-1.amazonaws.com', id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Sign Up", 'https://a4e9c518e81c4bc1848d670fb747f644.vfs.cloud9.eu-west-1.amazonaws.com/static_pages/sign_up' %></li>
+            <br>
+            <li><%= link_to "Sign In", 'https://a4e9c518e81c4bc1848d670fb747f644.vfs.cloud9.eu-west-1.amazonaws.com/static_pages/sign_in' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

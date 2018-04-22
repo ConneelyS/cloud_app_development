@@ -1,0 +1,54 @@
+<div class="center jumbotron"
+  <h1>Patients</h1>
+
+<table class=table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Address</th>
+      <th>Date birth</th>
+      <th>Phone</th>
+      <th>Infection</th>
+      <th>Injury</th>
+      <th>Observation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.first_name %></td>
+        <td><%= patient.last_name %></td>
+        <td><%= patient.address %></td>
+        <td><%= patient.date_birth %></td>
+        <td><%= patient.phone %></td>
+        <td><%= patient.infection %></td>
+        <td><%= patient.injury %></td>
+        <td><%= patient.observation %></td>
+        <td><%= link_to 'Show', patient %></td>
+        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!--This is the search bar code that allows the user to -->
+<!--end a value into the bar and filter the patient list-->
+
+<%= form_tag patients_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+
+<br>
+
+<%= link_to 'New Patient', new_patient_path, class: "btn btn-lg btn-primary" %>
+
+<br>
+
+<%= link_to "Add Doctors Notes", new_doctor_note_path, class: "btn btn-lg btn-primary" %>
+</div>
