@@ -9,8 +9,10 @@ class Patient < ApplicationRecord
         end
     end
 
-#form validation is required
+    belongs_to :user
     has_many :doctor_notes
+    
+#form validation is required
     validates :first_name, presence: true
     validates :last_name, presence: true
     validates :address, presence: true
